@@ -45,12 +45,6 @@ jobs:
       - name: Print .nvmrc
         run: echo ${{ steps.releaserc.outputs.RELEASERC }}
         # quit if the version is not changed
-      - name: Check if version is changed
-        id: check_version
-        uses: EndBug/version-check@v1
-        with:
-          current-version: ${{ steps.releaserc.outputs.RELEASERC }}
-          new-version: ${{ steps.releaserc.outputs.RELEASERC }}
       - name: Read .releaserc
         run: echo ::set-output name=RELEASE_NEEDED::$(echo `node -e 'console.log(require("./.releaserc.json").branches.map(e => e.name || e).reduce((a,c) => a || c === "cwm2", false))'`)
         id: release_needed
