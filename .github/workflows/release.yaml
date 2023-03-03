@@ -16,6 +16,10 @@ jobs:
         #directory is root of the project
         working-directory: .
     steps:
+      # display current directory
+      - name: Display working directory
+        run: pwd
+
       - name: Read .nvmrc
         run: echo ::set-output name=NVMRC::$(cat .nvmrc)
         id: nvm
