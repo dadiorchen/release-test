@@ -19,6 +19,9 @@ jobs:
       # display current directory
       - name: Display working directory
         run: pwd
+      # list files
+      - name: List files
+        run: ls -la
 
       - name: Read .nvmrc
         run: echo ::set-output name=NVMRC::$(cat .nvmrc)
