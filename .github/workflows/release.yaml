@@ -57,5 +57,5 @@ jobs:
       - name: Print rn
         run: echo ${{ steps.release_needed.outputs.RELEASE_NEEDED }}
       - name: Quit if version is not changed
-        if: steps.releaserc.outputs.
+        if: steps.release_needed.outputs.RELEASE_NEEDED == 'false'
         run: exit 0 
