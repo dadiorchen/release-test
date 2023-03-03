@@ -16,6 +16,9 @@ jobs:
         #directory is root of the project
         working-directory: .
     steps:
+      # checkout the code
+      - name: Checkout
+        uses: actions/checkout@v2
       # display current directory
       - name: Display working directory
         run: pwd
