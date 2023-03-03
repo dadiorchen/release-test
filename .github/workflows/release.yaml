@@ -10,8 +10,11 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    # directory is the root of the project
-    working-directory: .
+      # set dictory
+    defaults:
+      run:
+        #directory is root of the project
+        working-directory: .
     steps:
       - name: Read .nvmrc
         run: echo ::set-output name=NVMRC::$(cat .nvmrc)
