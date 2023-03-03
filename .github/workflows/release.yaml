@@ -9,9 +9,9 @@ on:
 
 jobs:
   release:
-    # directory is the root of the project
     runs-on: ubuntu-latest
-    directory: .
+    # directory is the root of the project
+    working-directory: .
     steps:
       - name: Read .nvmrc
         run: echo ::set-output name=NVMRC::$(cat .nvmrc)
