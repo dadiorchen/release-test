@@ -1,0 +1,22 @@
+# github action to release a new version of the package
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read .nvmrc
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+        id: nvm
+      - name: Read .releaserc
+        run: echo ::set-output name=RELEASERC::$(cat .releaserc)
+        id: releaserc
+        # pritn the output
+      - name: Print .nvmrc
+        run: echo ${{ steps.releaserc.outputs.RELEASERC }}
