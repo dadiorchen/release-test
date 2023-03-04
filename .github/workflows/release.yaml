@@ -46,7 +46,7 @@ jobs:
         run: echo ${{ steps.releaserc.outputs.RELEASERC }}
         # quit if the version is not changed
       - name: Read .releaserc
-        run: echo ::set-output name=RELEASE_NEEDED::$(echo `node -e 'console.log("xxx",process.env.GITHUB_REF))'`)
+        run: echo ::set-output name=RELEASE_NEEDED::$(echo `node -e 'console.log("xxx",process.env.GITHUB_REF)'`)
         env:
           GITHUB_REF: ${{ github.ref }}
         id: release_needed
