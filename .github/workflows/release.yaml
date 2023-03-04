@@ -55,3 +55,7 @@ jobs:
       - name: Quit if version is not changed
         if: steps.release_needed.outputs.RELEASE_NEEDED == 'false'
         run: echo "The branch is not configured to release. Quitting." && exit 0
+      - name: Load channel
+        run: echo ::set-output name=CHANNEL::$(echo `node -e ' process.env.GITHUB_REF_NAME === "master" ? console.log("master") :console.log(require("./.releaserc.json").branches.reduce((a,c) => a || c.name === process.env.GITHUB_REF_NAME  && c.channel, false))'`)
+      - name: Print channel
+        run: echo ${{ steps.channel.outputs.CHANNEL }}
