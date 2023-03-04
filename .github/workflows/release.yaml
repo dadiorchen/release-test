@@ -46,7 +46,7 @@ jobs:
         run: echo ${{ steps.releaserc.outputs.RELEASERC }}
         # quit if the version is not changed
       - name: Read .releaserc
-        run: echo ::set-output name=RELEASE_NEEDED::$(echo `node -e 'console.log(require("./.releaserc.json").branches.map(e => e.name || e).reduce((a,c) => a || c === "master", false))'`)
+        run: echo ::set-output name=RELEASE_NEEDED::$(echo `node -e 'console.log(require("./.releaserc").branches.map(e => e.name || e).reduce((a,c) => a || c === "master", false))'`)
         id: release_needed
       - name: Print rn
         run: echo ${{ steps.release_needed.outputs.RELEASE_NEEDED }}
