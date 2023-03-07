@@ -64,51 +64,51 @@ jobs:
         run: npm install -g semantic-release
       - name: Install plugins
         run: npm install -g @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/release-notes-generator
-      - name: Release
-        run: semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
-          GIT_AUTHOR_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
-          GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
-          GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }}
-          GITHUB_REF_NAME: ${{ github.ref }}
-          GITHUB_REF: ${{ github.ref }}
-            #      - name: Get git notes from latest tag
-            #        id: get_notes
-            #        uses:
-            #          fregante/get-tagged-commits@v1
-            #        with:
-            #          tag: ${{ github.ref }}
-            #          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Print notes
-        run: echo ${{ steps.get_notes.outputs.notes }}
-          #deploy: 
-          #needs: release
-          #runs-on: ubuntu-latest
-          #defaults:
-          #run:
-          ##directory is root of the project
-          #working-directory: .
-          #steps:
-          ## checkout the code
-          #- name: Checkout
-          #uses: actions/checkout@v2
-          ## display current directory
-          #- name: Display working directory
-          #run: pwd
-          ## print current branch
-          #- name: Print current branch
-          #run: echo $GITHUB_REF
-          #env:
-          #GITHUB_REF: ${{ github.ref }}
-          #- name: Get git notes from latest tag
-          #id: get_notes
-          #uses:
-          #fregante/get-tagged-commits@v1
-          #with:
-          #tag: ${{ github.ref }}
-          #token: ${{ secrets.GITHUB_TOKEN }}
-          #- name: Print notes
-          #run: echo ${{ steps.get_notes.outputs.notes }}
+          #      - name: Release
+          #        run: semantic-release
+          #        env:
+          #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          #          GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
+          #          GIT_AUTHOR_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
+          #          GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
+          #          GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }}
+          #          GITHUB_REF_NAME: ${{ github.ref }}
+          #          GITHUB_REF: ${{ github.ref }}
+          #            #      - name: Get git notes from latest tag
+          #            #        id: get_notes
+          #            #        uses:
+          #            #          fregante/get-tagged-commits@v1
+          #            #        with:
+          #            #          tag: ${{ github.ref }}
+          #            #          token: ${{ secrets.GITHUB_TOKEN }}
+          #      - name: Print notes
+          #        run: echo ${{ steps.get_notes.outputs.notes }}
+          #          #deploy: 
+          #          #needs: release
+          #          #runs-on: ubuntu-latest
+          #          #defaults:
+          #          #run:
+          #          ##directory is root of the project
+          #          #working-directory: .
+          #          #steps:
+          #          ## checkout the code
+          #          #- name: Checkout
+          #          #uses: actions/checkout@v2
+          #          ## display current directory
+          #          #- name: Display working directory
+          #          #run: pwd
+          #          ## print current branch
+          #          #- name: Print current branch
+          #          #run: echo $GITHUB_REF
+          #          #env:
+          #          #GITHUB_REF: ${{ github.ref }}
+          #          #- name: Get git notes from latest tag
+          #          #id: get_notes
+          #          #uses:
+          #          #fregante/get-tagged-commits@v1
+          #          #with:
+          #          #tag: ${{ github.ref }}
+          #          #token: ${{ secrets.GITHUB_TOKEN }}
+          #          #- name: Print notes
+          #          #run: echo ${{ steps.get_notes.outputs.notes }}
