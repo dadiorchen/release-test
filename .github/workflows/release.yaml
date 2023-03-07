@@ -75,14 +75,6 @@ jobs:
           GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }}
           GITHUB_REF_NAME: ${{ github.ref }}
           GITHUB_REF: ${{ github.ref }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-          GITHUB_REPOSITORY_NAME: ${{ github.repository_name }}
-          GITHUB_REPOSITORY_URL: ${{ github.repository_url }}
-          GITHUB_REPOSITORY_URL_RAW: ${{ github.repository_url_raw }}
-          GITHUB_REPOSITORY_URL_RAW: ${{ github.repository_url_raw }}
-          GITHUB_REPOSITORY_URL_RAW: ${{ github.repository_url_raw }}
-          GITHUB_REPOSITORY_URL_RAW: ${{ github.repository_url_raw }}
       - name: Get git notes from latest tag
         id: get_notes
         uses:
