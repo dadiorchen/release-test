@@ -37,3 +37,12 @@ jobs:
         run: echo $GITHUB_REF
         env:
           GITHUB_REF: ${{ github.ref }}
+      - name: Get git notes from latest tag
+        id: get_notes
+        uses:
+          fregante/get-tagged-commits@v1
+        with:
+          tag: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print notes
+        run: echo ${{ steps.get_notes.outputs.notes }}
