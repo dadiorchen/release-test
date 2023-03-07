@@ -60,10 +60,10 @@ jobs:
         id: channel
       - name: Print channel
         run: echo ${{ steps.channel.outputs.CHANNEL }}
-      - name: Install semantic-release
-        run: npm install -g semantic-release
-      - name: Install plugins
-        run: npm install -g @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/release-notes-generator
+          #      - name: Install semantic-release
+          #        run: npm install -g semantic-release
+          #      - name: Install plugins
+          #        run: npm install -g @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/release-notes-generator
           #      - name: Release
           #        run: semantic-release
           #        env:
