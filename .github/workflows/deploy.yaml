@@ -1,0 +1,42 @@
+# github action to choose environment and deploy
+
+name: Deploy
+
+#on user input 
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Version to deploy'
+        required: true
+        default: 'latest'
+      choice:
+        type: choice
+        description: Environment to deploy to
+        options:
+        - dev
+        - test
+        - prod
+        default: 'dev'
+
+jobs:
+  deploy:
+    # set dictory
+    defaults:
+      run:
+        #directory is root of the project
+        working-directory: .
+    runs-on: ubuntu-latest
+    # checkout the code
+    - name: Checkout
+      uses: actions/checkout@v2
+        # display current directory
+    - name: Display working directory
+      run: pwd
+        # print current branch
+    - name: Print current branch
+      run: echo $GITHUB_REF
+      env:
+        GITHUB_REF: ${{ github.ref }}
+
+
