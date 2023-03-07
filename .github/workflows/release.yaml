@@ -60,6 +60,38 @@ jobs:
         id: channel
       - name: Print channel
         run: echo ${{ steps.channel.outputs.CHANNEL }}
+      - name: Install semantic-release
+        run: npm install -g semantic-release
+      - name: Install plugins
+        run: npm install -g @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/release-notes-generator
+      - name: Release
+        run: semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
+          GIT_AUTHOR_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
+          GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
+          GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }}
+          GITHUB_REF_NAME: ${{ github.ref }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+          GITHUB_REPOSITORY_NAME: ${{ github.repository_name }}
+          GITHUB_REPOSITORY_URL: ${{ github.repository_url }}
+          GITHUB_REPOSITORY_URL_RAW: ${{ github.repository_url_raw }}
+          GITHUB_REPOSITORY_URL_RAW: ${{ github.repository_url_raw }}
+          GITHUB_REPOSITORY_URL_RAW: ${{ github.repository_url_raw }}
+          GITHUB_REPOSITORY_URL_RAW: ${{ github.repository_url_raw }}
+      - name: Get git notes from latest tag
+        id: get_notes
+        uses:
+          fregante/get-tagged-commits@v1
+        with:
+          tag: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print notes
+        run: echo ${{ steps.get_notes.outputs.notes }}
           #deploy: 
           #needs: release
           #runs-on: ubuntu-latest
